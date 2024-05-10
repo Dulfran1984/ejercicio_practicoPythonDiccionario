@@ -18,7 +18,7 @@
           </div>
         {% endif %}
         <h2 class="mb-4">Formulario de registro</h2>
-        <form action="/" method="POST">
+        <form action="/" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <input type="text" class="form-control" id="nombre" placeholder = "Nombres completos" name="nombre" required>
             </div>
@@ -30,6 +30,9 @@
             </div>
             <div class="mb-3">
                 <input type="text" class="form-control" id="direccion" placeholder = "Dirección de domicilio" name="direccion" required>
+            </div>
+            <div class="mb-3">
+                <input type="file" class="form-control" name="txtImagen" id="" placeholder="Seleccione la imagen" required/>
             </div>
             <center>
             <button type="submit" class="btn btn-outline-primary">Enviar</button>

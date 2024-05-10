@@ -22,28 +22,34 @@
         <br>
         <div class="container d-flex justify-content-center align-items-center vh-50">
             <div class="col-md-10">
+            <center><a href="/" class="btn btn-outline-info"><i class="fas fa-arrow-right"></i> Volver al formulario de registro</a><center>
+                <br>
             <h2 class="mb-4">Personas registradas</h2>
         <table class="table">
             <thead>
               <tr>
+                <th scope="col">Registro No.</th>
                 <th scope="col">Nombres</th>
                 <th scope="col">Contacto</th>
                 <th scope="col">Correo</th>
                 <th scope="col">Dirección</th>
+                <th scope="col">Foto</th>
               </tr>
             </thead>
+            <img src="img/202403170339_matt.jpg" width="150" height="150">
             <tbody>
                 {% for dato in datos %}
             <tr>
+                <td>{{ dato['Registro'] }}</td>
                 <td>{{ dato['Nombre'] }}</td>
                 <td>{{ dato['Contacto'] }}</td>
                 <td>{{ dato['Correo'] }}</td>
                 <td>{{ dato['Direccion'] }}</td>
+                
             </tr>
             {% endfor %}
             </tbody>
           </table>
-          <center><a href="/" class="btn btn-outline-info"><i class="fas fa-arrow-right"></i> Volver al formulario de registro</a><center>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
