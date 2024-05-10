@@ -22,4 +22,4 @@ def fnt_mostrar():
     return render_template('mostrar.html', datos = datos)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host='127.0.0.1', port=1000)
