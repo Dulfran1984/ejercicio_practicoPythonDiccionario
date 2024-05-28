@@ -1,12 +1,30 @@
-from flask import Flask, render_template, request
+import cv2.data
+from flask import Flask, render_template, request,send_from_directory
 from datetime import datetime
 from rembg import remove
 from PIL import Image
 import sqlite3
+import cv2
 import os
+from flask import Response
+
 app = Flask(__name__)
-#datos = []
+camera = cv2.VideoCapture(0)
+def gen_frames():
+    while True:
+        success, frame = camera.read()  # Leer la cámara
+        if not success:
+            break
+        else:
+            ret, buffer = cv2.imencode('.jpg', frame)
+            frame = buffer.tobytes()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
 #registro = 0
+@app.route("/video_feed")
+def video_feed():
+    return Response(gen_frames(),mimetype='multipart/x-mixed-replace; boundary=frame')
 @app.route('/', methods=['GET', 'POST'])
 def formulario():
     global registro
@@ -36,7 +54,9 @@ def formulario():
         #registro+=1
         
     return render_template('formulario.html', mensaje=mensaje)
-
+@app.route("/conferencia")
+def index():
+    return render_template("conferencia.html")
 @app.route('/guardar')
 def guardarDB(nombre, contacto, correo, direccion,archivo):
     conn = sqlite3.connect('static/datos.db')
@@ -46,7 +66,10 @@ def guardarDB(nombre, contacto, correo, direccion,archivo):
     conn.commit()
     conn.close()
     return render_template('formulario.html', mensaje="Los datos han sido guardados en la base de datos con éxito")
-    
+
+@app.route('/video/<path:filename>')
+def video(filename):
+    return send_from_directory('videos', filename)
 @app.route('/mostrar')
 def fnt_mostrar():
     conexion = sqlite3.connect('static/datos.db ')
@@ -56,7 +79,12 @@ def fnt_mostrar():
     conexion.close()
     return render_template('mostrar.html', datos = datos)
     print(datos)
-
+@app.route('/reproducir')
+def reproducir():
+    return render_template('videos.html')
+@app.route('/reportes')
+def reporte():
+    return render_template('reportes.html')
 if __name__ == '__main__':
-    #app.run(debug=True,host='127.0.0.1', port=5000)
-    app.run(debug=True,host='172.22.50.17', port=5000)
+    app.run(debug=False,host='127.0.0.1', port=5000)
+    #app.run(debug=True,host='172.22.50.17', port=5000)

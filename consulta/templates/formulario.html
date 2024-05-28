@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <!-- Agrega los estilos de Bootstrap 5 -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Agrega tu archivo de estilos personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Formulario</h5>
+                        <form id="miFormulario">
+                            <div class="mb-3">
+                                <label for="documento" class="form-label">Documento</label>
+                                <input type="text" id="documento" name="documento" class="form-control" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" class="form-control" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="apellido" class="form-label">Apellido</label>
+                                <input type="text" id="apellido" name="apellido" class="form-control" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" readonly>
+                            </div>
+                            <!-- Agrega más campos según tu base de datos -->
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                            <a href="/material" class="btn btn-outline-info"><i class="fas fa-arrow-right"></i> Conferencia en vivo</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Foto</h5>
+                        <img id="foto" src="" alt="Foto de usuario" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agrega el script de Bootstrap 5 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Agrega tu archivo de script personalizado -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

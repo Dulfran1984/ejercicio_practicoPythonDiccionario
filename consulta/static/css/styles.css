@@ -1,0 +1,34 @@
+/* Puedes agregar tus estilos personalizados aquí */
+body {
+    background-color: #f0f4f8; /* Fondo claro */
+}
+
+.card {
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.card-body {
+    padding: 30px; /* Espaciado interno */
+}
+
+.card-title {
+    font-weight: bold; /* Negrita */
+    font-size: 24px; /* Tamaño de fuente */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.img-fluid {
+    max-height: 100%;
+    object-fit: cover; /* Asegura que la imagen se ajuste bien */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Color de fondo del botón */
+    border-color: #007bff; /* Borde del botón */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Color de fondo del botón al pasar el ratón */
+    border-color: #0056b3; /* Borde del botón al pasar el ratón */
+}

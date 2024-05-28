@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pantalla Dividida</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="static/style2.css">
+</head>
+<body>
+  <div class="container">
+    <div class="col-4">
+      <h2>Reporte de ingresos</h2>
+      <br>
+      <br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Registro No.</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Contacto</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Foto</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for dato in datos %}
+        <tr>
+            <td><img src="{{ url_for('static', filename='img/' + dato[5]) }} " width="100" height="100" class="rounded-image"></td>
+            <td>{{ dato[0] }}</td>
+            <td>{{ dato[1] }}</td>
+            <td>{{ dato[2] }}</td>
+            <td>{{ dato[3] }}</td>
+            <td>{{ dato[4] }}</td> 
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-8">
+      <h2>Columna 8</h2>
+      <p>Contenido de la columna de tamaño 8.</p>
+    </div>
+  </div>
+</body>
+</html>
