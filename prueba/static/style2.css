@@ -16,7 +16,7 @@
   
   .col-4 {
     width: 33.33%;
-    background-color: #007bff;
+    background-color: #ffffff;
     color: white;
     display: flex;
     align-items: center;
@@ -26,7 +26,7 @@
   
   .col-8 {
     width: 66.67%;
-    background-color: #6c757d;
+    background-color: #ffffff;
     color: white;
     display: flex;
     align-items: center;

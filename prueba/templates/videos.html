@@ -6,12 +6,35 @@
   <title>Pantalla Dividida</title>
   
   <link rel="stylesheet" href="static/style2.css">
+  <link rel="stylesheet" href="static/style.css">
+  
 </head>
 <body>
   <div class="container">
     <div class="col-4">
       <h2>Reporte de ingresos</h2>
-    
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Perfil</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Contacto</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Foto</th>
+          </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td><img src="{{ url_for('static', filename='imagenes_reporte_ingresos/docente.jpg') }} " width="150" height="150" class="rounded-image"></td>
+            <td><img src="{{ url_for('static', filename='imagenes_reporte_ingresos/administrativo.jpg') }} " width="150" height="150" class="rounded-image"></td>
+            <td><img src="{{ url_for('static', filename='imagenes_reporte_ingresos/estudiante.jpg') }} " width="150" height="150" class="rounded-image"></td>
+            <td><img src="{{ url_for('static', filename='imagenes_reporte_ingresos/visitantes.jpg') }} " width="150" height="150" class="rounded-image"></td>
+        </tr>
+           
+        </tbody>
+      </table>
     </div>
     <div class="col-8">
         
@@ -20,18 +43,6 @@
         <source src="{{ url_for('static', filename='videos/video.mp4') }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    <script>
-        // Obtener el elemento de vídeo
-        var video = document.getElementById("static/videos/video.mp4");
-
-        // Agregar un event listener para detectar el evento "ended"
-        video.addEventListener("ended", function() {
-            // Reiniciar el vídeo estableciendo el tiempo actual en cero
-            this.currentTime = 0;
-            // Reproducir el vídeo nuevamente
-            this.play();
-        });
-    </script>
     </div>
   </div>
   <script

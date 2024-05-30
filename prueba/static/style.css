@@ -1,5 +1,5 @@
 .rounded-image {
-    border-radius:50%; /* Se ajusta al 50% para hacer que la imagen tenga bordes completamente redondeados */
+    border-radius:35%; /* Se ajusta al 50% para hacer que la imagen tenga bordes completamente redondeados */
     border: 2px solid #6ec8e4; /* Opcional: agregar un borde a la imagen */
 }
 /* Estilo para el cuerpo de la página */
